@@ -2,8 +2,7 @@ package com.example.translatorapi.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
-import org.springframework.data.annotation.CreatedDate;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
 
@@ -20,8 +19,15 @@ public class History {
 
     private String id;
 
+    @Column(name = "search_word", length = 200)
+    private String searchWord;
+
+    @Column(name = "search_lang", length = 2)
+    private String searchLang;
+
+
     @Column(name = "search_date")
-    @CreatedDate
+    @CreationTimestamp
     private LocalDate searchDate;
 
 
